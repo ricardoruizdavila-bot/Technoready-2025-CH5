@@ -13,15 +13,9 @@ Includes CRUD endpoints, validation, environment profiles, H2 for development, P
 - [Quick Start](#quick-start)
 - [Profiles & Config](#profiles--config)
 - [API Endpoints](#api-endpoints)
-- [Data Model](#data-model)
-- [Postman Collection](#postman-collection)
 - [JavaDoc](#javadoc)
-- [Build & Run Without Scripts](#build--run-without-scripts)
 - [Decisions Log](#decisions-log)
-- [Repository Access](#repository-access)
 - [Project Structure](#project-structure)
-- [Validation Notes](#validation-notes)
-- [License](#license)
 
 ---
 
