@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: ch5techno
+  profiles:
+    active: dev
+
+---
+# Perfil DEV (H2 en memoria)
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:h2:mem:orders;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  h2:
+    console:
+      enabled: true
+
+server:
+  port: 8081
+
+---
+# Perfil PROD (ej. PostgreSQL)
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASS}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+server:
+  port: ${PORT:8081}
