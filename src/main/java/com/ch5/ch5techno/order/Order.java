@@ -5,25 +5,34 @@ import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.Instant;
 
-/** Entidad JPA que representa una orden de compra. */
-@Entity @Table(name = "orders")
+/**
+ * Entidad JPA que representa una orden de compra en la tienda.
+ * <p>Se persiste en la tabla {@code orders}.</p>
+ */
+@Entity
+@Table(name = "orders")
 public class Order {
-
+    /** Identificador único autogenerado. */
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /** Nombre del cliente asociado a la orden. */
     @NotBlank @Size(max = 80)
     private String customerName;
 
+    /** Estado actual de la orden. */
     @NotNull @Enumerated(EnumType.STRING)
     private OrderStatus status = OrderStatus.CREATED;
 
+    /** Importe total de la orden (moneda base). */
     @NotNull @Positive
     private BigDecimal total;
 
+    /** Fecha/hora de creación en UTC. */
     @Column(nullable = false, updatable = false)
     private Instant createdAt = Instant.now();
 
+    /** Última fecha/hora de actualización en UTC. */
     private Instant updatedAt;
 
     // Getters/Setters
