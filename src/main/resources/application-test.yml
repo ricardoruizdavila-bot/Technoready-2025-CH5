@@ -1,0 +1,18 @@
+server:
+  port: ${PORT:8083}
+
+spring:
+  datasource:
+    url: ${TEST_DB_URL:jdbc:h2:mem:testdb}
+    username: ${TEST_DB_USER:sa}
+    password: ${TEST_DB_PASS:}
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+logging:
+  level:
+    root: DEBUG
+
+feature:
+  enableDebug: false

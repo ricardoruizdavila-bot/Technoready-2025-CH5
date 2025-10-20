@@ -1,33 +1,49 @@
-HELP.md
+# --- Build outputs ---
 target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+build/
+out/
 
-### STS ###
-.apt_generated
+# --- Maven wrapper (mantener) ---
+# NO ignorar .mvn/wrapper/** ni mvnw/mvnw.cmd
+# (asegúrate de que NO exista una regla que ignore .mvn/wrapper/maven-wrapper.jar)
+
+# --- IDEs ---
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# STS / Eclipse
+.apt_generated/
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
-.sts4-cache
+.sts4-cache/
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
-.vscode/
+# --- SO / miscelánea ---
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+logs/
+*.log
+
+# --- Entornos / secretos ---
+.env
+*.env
+
+# --- Archivos que no aportan al repo ---
+HELP.md

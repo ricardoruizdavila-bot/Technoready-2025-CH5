@@ -2,7 +2,12 @@ spring:
   application:
     name: ch5techno
   profiles:
-    active: dev
+    # Usa la variable de entorno SPRING_PROFILES_ACTIVE para elegir el perfil; por defecto 'dev'
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+logging:
+  level:
+    root: INFO
 
 ---
 # Perfil DEV (H2 en memoria)

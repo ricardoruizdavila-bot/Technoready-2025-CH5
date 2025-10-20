@@ -1,0 +1,25 @@
+server:
+  port: ${PORT:8081}
+
+spring:
+  datasource:
+    # usar las variables de entorno que exportaste: DB_URL, DB_USER, DB_PASS
+    url: ${DB_URL:}          # REQUIRED: set via env var on the server (ej: jdbc:postgresql://host:5432/orders)
+    username: ${DB_USER:}    # REQUIRED
+    password: ${DB_PASS:}    # REQUIRED (do NOT commit real passwords)
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+logging:
+  level:
+    root: INFO
+
+security:
+  strict-mode: true
+
+# NOTE: Do not store secrets here. Use environment variables or a secrets manager.
