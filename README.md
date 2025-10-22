@@ -2,7 +2,7 @@
 # CH5Techno — Order API (Spring Boot 3, Java 17)
 
 REST API to manage **orders** for an online store.  
-Includes CRUD endpoints, validation, environment profiles, H2 for development, Postman collection, startup scripts, and JavaDoc.
+Includes CRUD endpoints, validation, environment profiles, H2 for development, Postman collection, and JavaDoc.
 
 > **Tech stack:** Java 17 · Spring Boot 3.5.x · Spring Web · Spring Data JPA · Validation · DevTools · H2 (dev) / PostgreSQL (prod)
 
@@ -13,6 +13,7 @@ Includes CRUD endpoints, validation, environment profiles, H2 for development, P
 - [Quick Start](#quick-start)
 - [Perfiles y Configuración](#perfiles-y-configuración)
 - [API Endpoints](#api-endpoints)
+- [Documentación de la API (Swagger UI)](#documentación-de-la-api-swagger-ui)
 - [JavaDoc](#javadoc)
 - [Decisions Log](#decisions-log)
 - [Project Structure](#project-structure)
@@ -140,6 +141,62 @@ mvnw spring-boot:run -Dspring-boot.run.profiles=dev|test|prod
 |  PATCH | `/api/orders/{id}/status?status=PAID` | Change status (`CREATED/PAID/...`) |
 | DELETE | `/api/orders/{id}`                    | Delete order                       |
 ````
+
+## Documentación de la API (Swagger UI)
+
+La API está documentada usando OpenAPI 3.0 (Swagger). Puedes acceder a la documentación interactiva en:
+
+### Endpoints de Documentación
+
+- **Swagger UI**: 
+  - Desarrollo: http://localhost:8081/swagger-ui.html
+  - Producción: http://localhost:8082/swagger-ui.html
+
+- **OpenAPI Spec (JSON)**:
+  - Desarrollo: http://localhost:8081/v3/api-docs
+  - Producción: http://localhost:8082/v3/api-docs
+
+### Características de la Documentación
+
+- Documentación completa de endpoints
+- Pruebas interactivas de API
+- Esquemas de solicitud/respuesta
+- Ejemplos de payload
+- Códigos de respuesta documentados
+
+### Configuración de Swagger
+
+La configuración de Swagger está definida en `application.yml`:
+
+```yaml
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+  paths-to-match: /api/**
+```
+
+### Cómo usar Swagger UI
+
+1. Inicia la aplicación en el perfil deseado (dev/prod)
+2. Abre el navegador y ve a la URL de Swagger UI correspondiente
+3. Explora los endpoints disponibles
+4. Prueba las operaciones directamente desde la interfaz
+5. Revisa los modelos de datos y esquemas
+
+### Notas sobre la Documentación
+
+- La documentación está restringida a rutas que comienzan con `/api/**`
+- Los endpoints están agrupados por funcionalidad
+- Cada operación incluye:
+  - Descripción detallada
+  - Parámetros requeridos
+  - Ejemplos de payload
+  - Posibles códigos de respuesta
+  - Esquemas de datos
 
 ### JavaDoc
 
